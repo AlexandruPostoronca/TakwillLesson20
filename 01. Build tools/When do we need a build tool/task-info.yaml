@@ -1,0 +1,24 @@
+type: choice
+is_multiple_choice: false
+options:
+  - text: we need to automate a larger project compiling
+    is_correct: true
+  - text: we need to write a Java code
+    is_correct: false
+  - text: it is impossible to write any code without such tool
+    is_correct: false
+  - text: we are just learning to compile the code and we need hints
+    is_correct: false
+files:
+  - name: src/Main.java
+    visible: true
+    learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Fri, 31 May 2024 21:35:45 UTC"
+record: -1
+selected_options:
+  - 0
+custom_name: When do we need a build tool?
+local_check: true

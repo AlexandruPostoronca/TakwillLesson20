@@ -1,0 +1,24 @@
+type: choice
+is_multiple_choice: false
+options:
+  - text: replace .jar with .arc and open as archive
+    is_correct: false
+  - text: replace .jar with .zip and open as archive
+    is_correct: true
+  - text: open the .jar file in the Java editor
+    is_correct: false
+  - text: just open the .jar file
+    is_correct: false
+files:
+  - name: src/Main.java
+    visible: true
+    learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Mon, 03 Jun 2024 11:59:10 UTC"
+record: -1
+selected_options:
+  - 1
+custom_name: View internal structure
+local_check: true

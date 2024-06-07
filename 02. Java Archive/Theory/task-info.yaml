@@ -1,0 +1,20 @@
+type: theory
+files:
+  - name: src/Main.java
+    visible: true
+    learner_created: false
+  - name: 20.02.01.jpg
+    visible: true
+    is_binary: true
+    learner_created: false
+  - name: app2.jar
+    visible: true
+    is_binary: true
+    learner_created: false
+  - name: app1.jar
+    visible: true
+    is_binary: true
+    learner_created: false
+status: Solved
+record: -1
+post_submission_on_open: true

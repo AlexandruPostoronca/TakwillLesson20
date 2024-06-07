@@ -1,0 +1,187 @@
+<html>
+ <head></head>
+ <body>
+  <p>In this topic, you are going to create and study your first project with Maven. It is assumed that you have downloaded and installed Maven on your computer. If you have not done so, please follow the <a href="https://maven.apache.org/download.html" rel="nofollow noopener noreferrer" target="_blank">Download and Installation</a> instructions.</p>
+  <p>Before we start learning the structure of the simplest project, let's discuss how to distinguish it from other Maven-based projects.</p>
+  <h4>Project coordinates</h4>
+  <p>Every project managed by Maven is uniquely identified by three coordinates:</p>
+  <ul>
+   <li><code>groupId:</code> is generally unique in an organization or a project. For example, <code>md.tekwill</code> or <code>md.aumanet</code>.</li>
+   <li><code>artifactId:</code> is the name that the project is known by. For example, <code>first-maven-app</code>.</li>
+   <li><code>version:</code> is the last piece of the full project name. It looks like <code>1.0</code>, <code>1.1</code>, <code>1.0.1</code>, etc.</li>
+  </ul>
+  <p>These three values make up the full project name according to the following rule:</p>
+  <pre><code>&lt;groupId&gt;:&lt;artifactId&gt;:&lt;version&gt;</code></pre>
+  <p>For example, we can name a project like this:</p>
+  <pre><code>md.aumanet.maven:first-maven-proj:1.0</code></pre>
+  <p>To understand these coordinates better, look through these several existing Java projects created with Maven:</p>
+  <pre><code>com.beust:jcommander:1.72
+org.testng:testng:6.14.3
+org.hibernate:hibernate-core:5.3.3.FINAL</code></pre>
+  <p></p>
+  <div class="alert alert-primary">
+   A version may contain an additional word like<strong> </strong><code>FINAL</code> or <code>SNAPSHOT</code>. Do not worry about this for now; we will learn more about it later.
+  </div>
+  <p></p>
+  <p>There is another option <code>packaging</code> that determines the type of the resulting artifact (file): <code>jar</code>, <code>pom</code>, <code>maven-plugin</code>, <code>war</code>, <code>ear</code>, etc. When no packaging is declared, Maven assumes it is <code>jar</code> by default. In this topic, we will not specify it.</p>
+  <h4>Generating the simplest project</h4>
+  <p>It is time to generate the simplest project using Maven. In a terminal (for UNIX-like systems), go to the directory where you want to create this project and type the following command:</p>
+  <pre><code>mvn archetype:generate -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.3 -DgroupId=md.tekwill -DartifactId=first-maven-app -DinteractiveMode=false </code></pre>
+  <p>If you're using Windows, type the following command in the command prompt or PowerShell:</p>
+  <pre><code> mvn archetype:generate "-DarchetypeArtifactId=maven-archetype-quickstart" "-DarchetypeVersion=1.3" "-DgroupId=md.tekwill" "-DartifactId=first-maven-app" "-DinteractiveMode=false"</code></pre>
+  <p>This command will start generating a project based on the archetype <strong>maven-archetype-quickstart;</strong> <code>groupId</code> is specified as <code>md.tekwill</code>, and the <code>artifactId</code> is set to <code>first-maven-app</code>. If you like, you can specify other values for these parameters (like <code>com.companyname.app</code>, <code>my-app</code>), but do not modify the archetype name.</p>
+  <p>Project generation may take some time. Please wait until it is finished to continue.</p>
+  <pre><code>[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Maven Stub Project (No POM) 1
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] &gt;&gt;&gt; maven-archetype-plugin:3.0.1:generate (default-cli) @ standalone-pom &gt;&gt;&gt;
+[INFO] 
+[INFO] &lt;&lt;&lt; maven-archetype-plugin:3.0.1:generate (default-cli) @ standalone-pom &lt;&lt;&lt;
+[INFO] 
+[INFO] --- maven-archetype-plugin:3.0.1:generate (default-cli) @ standalone-pom ---
+[INFO] Generating project in Batch mode
+[INFO] ----------------------------------------------------------------------------
+[INFO] Using following parameters for creating project from Old (1.x) Archetype: maven-archetype-quickstart:1.0
+[INFO] ----------------------------------------------------------------------------
+[INFO] Parameter: basedir, Value: /home/art/Projects
+[INFO] Parameter: package, Value: md.tekwill
+[INFO] Parameter: groupId, Value: md.tekwill
+[INFO] Parameter: artifactId, Value: first-maven-app
+[INFO] Parameter: packageName, Value: md.tekwill
+[INFO] Parameter: version, Value: 1.0-SNAPSHOT
+[INFO] project created from Old (1.x) Archetype in dir: /home/art/Projects/first-maven-app
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 12 seconds
+[INFO] Final Memory: 13M/45M
+[INFO] ------------------------------------------------------------------------</code></pre>
+  <p>The command created a new directory with the name we've specified <code>artifactId: first-maven-app</code>. Let's go to this directory.</p>
+  <h4>Basic project structure</h4>
+  <p>The generated project has a standard project structure:</p>
+  <pre><code>first-maven-app
+├── pom.xml
+└── src
+    ├── main
+    │   └── java
+    │       └── md
+    │           └── tekwill
+    │               └── App.java
+    └── test
+        └── java
+            └── md
+                └── tekwill
+                    └── AppTest.java</code></pre>
+  <p>The root directory is <code>first-maven-app</code>; it has the same name as the <code>artifactId</code>. It includes the <code>pom.xml</code> file and the <code>src</code> directory.</p>
+  <p>The <code>pom.xml</code> is a file that describes this project (<em>POM: Project Object Model</em>). All Maven-based projects contain this file.</p>
+  <p>The <code>src</code> directory contains all the source material needed to build the project. The directory <code>src/main/java</code> contains the project source code, and the <code>src/test/java</code> contains the source code of tests. In both cases, <code>.java</code> files are located inside the package <code>md.tekwill</code> that is the same as the <code>groupId</code>.</p>
+  <p>Maven also created the sample Java source code file called <code>App.java</code>. It just prints <code>HelloWorld</code> to the standard output. We will not explain it here, because we assume that you already know how to write programs like that. If you want, you may open this file.</p>
+  <p>Our project structure is simple enough, but real projects have some additional files and directories. The basic structure (project root, <code>pom.xml</code>, <code>src</code>) is always the same.</p>
+  <h4>The POM file</h4>
+  <p><code>pom.xml</code> is the basic unit of work in Maven. It contains the Project Object Model (POM) that provides all the information required to build a project. In our project, the file contains a small piece of information. But in reality, it can be huge.</p>
+  <p>Let's open this file. It should look like the text below. We have slightly formatted the file to make it more readable:</p>
+  <pre><code>&lt;project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"&gt;
+  
+  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+
+  &lt;groupId&gt;md.tekwill&lt;/groupId&gt;
+  &lt;artifactId&gt;first-maven-app&lt;/artifactId&gt;
+  &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+
+  &lt;name&gt;first-maven-app&lt;/name&gt;
+  &lt;url&gt;https://www.example.com&lt;/url&gt;
+
+  &lt;properties&gt;
+    &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
+    &lt;maven.compiler.source&gt;17&lt;/maven.compiler.source&gt;
+    &lt;maven.compiler.target&gt;17&lt;/maven.compiler.target&gt;
+  &lt;/properties&gt;
+
+  &lt;dependencies&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;junit&lt;/groupId&gt;
+      &lt;artifactId&gt;junit&lt;/artifactId&gt;
+      &lt;version&gt;4.11&lt;/version&gt;
+      &lt;scope&gt;test&lt;/scope&gt;
+    &lt;/dependency&gt;
+  &lt;/dependencies&gt;
+&lt;/project&gt;
+</code></pre>
+  <p>This is a basic POM, but still there are the key elements that every POM contains:</p>
+  <ul>
+   <li><code>project</code> is the top-level element in any Maven <code>pom.xml</code> file;</li>
+   <li><code>modelVersion</code> is the version of the object model used (4.0.0);</li>
+   <li><code>groupId</code> is the unique identifier of the organization that created this project;</li>
+   <li><code>artifactId</code> is the identifier of this artifact (project);</li>
+   <li><code>version</code> is the version of this artifact (<code>SNAPSHOT</code> indicates that this version of the project is in development);</li>
+   <li><code>name</code> is the display name for the project;</li>
+   <li><code>url</code> is the URL where the project's site can be found;</li>
+   <li><code>properties</code> section contains a set of common project settings.</li>
+  </ul>
+  <p>The <code>dependencies</code> section is used to include libraries and other projects into your project. In this topic, we will not go into details.</p>
+  <p>Remember that the minimal requirements for POM are <code>project</code>, <code>modelVersion</code>, and three project coordinates: <code>groupId</code>, <code>artifactId</code>, and <code>version</code>.</p>
+  <h4>Building and starting the project</h4>
+  <p>To build a Maven-based project, you should be inside the root directory of your project, at the same level as the <code>pom.xml</code> file. There are several ways to do that:</p>
+  <ul>
+   <li>Building a project without cleaning the project and without running tests:</li>
+  </ul>
+  <pre><code>mvn compile</code></pre>
+  <ul>
+   <li>Building a project without cleaning the project, but running tests:</li>
+  </ul>
+  <pre><code>mvn package</code></pre>
+  <ul>
+   <li>Cleaning a project and then building (with tests):</li>
+  </ul>
+  <pre><code>mvn clean package</code></pre>
+  <ul>
+   <li>Using install Instead of <code>package</code>:</li>
+  </ul>
+  <pre><code>mvn clean install</code></pre>
+  <p>Later, you will study how all these ways of building a project differ from one another. For now, just choose one you like and use it. We recommend using one of the last two ways. However, the first way is the fastest because it runs no tests.</p>
+  <p>If no errors occur, you will see the success message:</p>
+  <pre><code>[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 2.345s
+[INFO] Final Memory: 8M/28M
+[INFO] ------------------------------------------------------------------------</code></pre>
+  <p>This message means that you have built your project. Now, there is a new directory <code>target</code> at the same level as <code>pom.xml</code> and <code>src</code>.</p>
+  <pre><code>first-maven-app
+├── pom.xml
+├── src
+└── target</code></pre>
+  <p>The <code>target</code> directory contains the results of building the project. The most important thing here is the <code>first-maven-app-1.0-SNAPSHOT.jar</code> file. This file may have a different name if you use another <code>artifactId</code>.</p>
+  <p>To start this project, enter the following command in the terminal:</p>
+  <pre><code>java -cp target/first-maven-app-1.0-SNAPSHOT.jar md.tekwill.App</code></pre>
+  <p>Your program must output:</p>
+  <pre><code>Hello World!</code></pre>
+  <p>If you want to remove the result of the last build from the project file, use this command:</p>
+  <pre><code>mvn clean</code></pre>
+  <p>It will remove the <code>target</code> directory.</p>
+  <p>Congratulations, you are one step closer to writing real applications that need external dependencies and a lot of environment configurations! Maven will help you with that.</p>
+  <h4>Possible problems</h4>
+  <p>Finally, let's look at some common problems that beginners tend to have with Maven.</p>
+  <ul>
+   <li><strong>No POM file in this directory.</strong> Commands to build and manage a project require the POM file in the directory. If there is no POM file, these commands will fail with the following message:</li>
+  </ul>
+  <pre><code>[ERROR] The goal you specified requires a project to execute but there is no POM in this directory (/home/art/Projects). Please verify you invoked Maven from the correct directory.</code></pre>
+  <ul>
+   <li><strong>Source/Target option is no longer supported.</strong> The latest versions of Maven do not support old versions of Java.</li>
+  </ul>
+  <pre><code>[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.1:compile (default-compile) on project first-maven-app: Compilation failure: Compilation failure: 
+[ERROR] Source option 1.5 is no longer supported. Use 1.6 or later.
+[ERROR] Target option 1.5 is no longer supported. Use 1.6 or later.</code></pre>
+  <p>To solve this problem, specify the <code>source</code> and <code>target</code> options in the <code>properties</code> section of your POM:</p>
+  <pre><code>&lt;properties&gt;
+  &lt;maven.compiler.source&gt;1.6&lt;/maven.compiler.source&gt;
+  &lt;maven.compiler.target&gt;1.6&lt;/maven.compiler.target&gt;
+&lt;/properties&gt;</code></pre>
+  <p>Do not forget to Google your problem if you cannot solve it. Maven is a very popular tool, and there already exists a solution for most of the common issues.</p>
+ </body>
+</html>

@@ -1,0 +1,24 @@
+type: choice
+is_multiple_choice: false
+options:
+  - text: a platform-independent programming format to unify Java code
+    is_correct: false
+  - text: a programming code editor
+    is_correct: false
+  - text: a platform-independent file format to pack and distribute multiple files together
+    is_correct: true
+  - text: a special folder to keep all the Java projects in it
+    is_correct: false
+files:
+  - name: src/Main.java
+    visible: true
+    learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Mon, 03 Jun 2024 11:59:13 UTC"
+record: -1
+selected_options:
+  - 2
+custom_name: What is JAR?
+local_check: true

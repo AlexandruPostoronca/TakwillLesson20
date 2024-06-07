@@ -1,0 +1,24 @@
+type: choice
+is_multiple_choice: false
+options:
+  - text: internal libraries used in some methods
+    is_correct: false
+  - text: collection of files with project documentation
+    is_correct: false
+  - text: external libraries used in a project
+    is_correct: true
+  - text: external project interface
+    is_correct: false
+files:
+  - name: src/Main.java
+    visible: true
+    learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Wed, 05 Jun 2024 19:24:28 UTC"
+record: -1
+selected_options:
+  - 2
+custom_name: What are dependencies?
+local_check: true

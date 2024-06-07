@@ -1,0 +1,16 @@
+type: choice
+is_multiple_choice: false
+options:
+  - text: It downloads external libraries for the project.
+    is_correct: false
+  - text: It compiles source code to execute it.
+    is_correct: false
+  - text: It runs tests for the application.
+    is_correct: false
+  - text: "It performs multiple tasks: downloads external libraries, compiles source\
+    \ code, runs tests and so on."
+    is_correct: true
+status: Unchecked
+record: -1
+custom_name: Tasks of a build tool
+local_check: true

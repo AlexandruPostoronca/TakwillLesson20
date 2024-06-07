@@ -1,0 +1,26 @@
+type: choice
+is_multiple_choice: true
+options:
+  - text: fix errors in the source code
+    is_correct: false
+  - text: save time
+    is_correct: true
+  - text: minimize the risk of human error
+    is_correct: true
+  - text: generate the code documentation
+    is_correct: false
+quiz_header: 'Select all the correct answers:'
+files:
+  - name: src/Main.java
+    visible: true
+    learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Fri, 31 May 2024 21:33:41 UTC"
+record: -1
+selected_options:
+  - 1
+  - 2
+custom_name: Build tools benefits
+local_check: true

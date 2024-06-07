@@ -1,0 +1,28 @@
+type: choice
+is_multiple_choice: true
+options:
+  - text: groupId is org
+    is_correct: false
+  - text: groupId is org.alexandru
+    is_correct: true
+  - text: artifactId is repl
+    is_correct: true
+  - text: artifactId is repl:1.0.1
+    is_correct: false
+  - text: artifactId is alexandru:repl
+    is_correct: false
+quiz_header: 'Select all the correct answers:'
+files:
+  - name: src/Main.java
+    visible: true
+    learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Wed, 05 Jun 2024 19:21:27 UTC"
+record: -1
+selected_options:
+  - 1
+  - 2
+custom_name: The project full name
+local_check: true

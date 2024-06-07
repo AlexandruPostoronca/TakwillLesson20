@@ -1,0 +1,30 @@
+type: choice
+is_multiple_choice: true
+options:
+  - text: The project depends on large number of external libraries.
+    is_correct: true
+  - text: You always need to run automated tests after changes in the application.
+    is_correct: true
+  - text: "You would like to run the source code of the application immediately, without\
+    \ compilation into bytecode."
+    is_correct: false
+  - text: You would like to start your application without JVM installed on the computer.
+    is_correct: false
+  - text: You would like to generate a production-ready application archive easily.
+    is_correct: true
+quiz_header: 'Select all the correct answers:'
+files:
+  - name: src/Main.java
+    visible: true
+    learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Fri, 31 May 2024 21:34:47 UTC"
+record: -1
+selected_options:
+  - 0
+  - 1
+  - 4
+custom_name: The reasons to use a build tool
+local_check: true

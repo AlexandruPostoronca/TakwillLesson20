@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="delegatedBuild" value="false" />
+        <option name="distributionType" value="WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/01. Build tools/Build tools benefits" />
+            <option value="$PROJECT_DIR$/01. Build tools/Existing build tools" />
+            <option value="$PROJECT_DIR$/01. Build tools/The reasons to use a build tool" />
+            <option value="$PROJECT_DIR$/01. Build tools/Theory" />
+            <option value="$PROJECT_DIR$/01. Build tools/What does a build process consist of" />
+            <option value="$PROJECT_DIR$/01. Build tools/What is a build tool" />
+            <option value="$PROJECT_DIR$/01. Build tools/When do we need a build tool" />
+            <option value="$PROJECT_DIR$/02. Java Archive/How to start a program" />
+            <option value="$PROJECT_DIR$/02. Java Archive/JAR" />
+            <option value="$PROJECT_DIR$/02. Java Archive/Main-Class attribute" />
+            <option value="$PROJECT_DIR$/02. Java Archive/Statements about JAR" />
+            <option value="$PROJECT_DIR$/02. Java Archive/Theory" />
+            <option value="$PROJECT_DIR$/02. Java Archive/Valid JAR structures" />
+            <option value="$PROJECT_DIR$/02. Java Archive/View internal structure" />
+            <option value="$PROJECT_DIR$/02. Java Archive/What is JAR" />
+            <option value="$PROJECT_DIR$/03. Maven basics/Acronym" />
+            <option value="$PROJECT_DIR$/03. Maven basics/Command" />
+            <option value="$PROJECT_DIR$/03. Maven basics/Dependency management" />
+            <option value="$PROJECT_DIR$/03. Maven basics/File" />
+            <option value="$PROJECT_DIR$/03. Maven basics/Maven is" />
+            <option value="$PROJECT_DIR$/03. Maven basics/POM" />
+            <option value="$PROJECT_DIR$/03. Maven basics/Theory" />
+            <option value="$PROJECT_DIR$/04. A simple Maven project/Describe a command" />
+            <option value="$PROJECT_DIR$/04. A simple Maven project/Final name" />
+            <option value="$PROJECT_DIR$/04. A simple Maven project/Project coordinates" />
+            <option value="$PROJECT_DIR$/04. A simple Maven project/Required elements of POM" />
+            <option value="$PROJECT_DIR$/04. A simple Maven project/Standard commands" />
+            <option value="$PROJECT_DIR$/04. A simple Maven project/The project full name" />
+            <option value="$PROJECT_DIR$/04. A simple Maven project/The project hierarchy" />
+            <option value="$PROJECT_DIR$/04. A simple Maven project/Theory" />
+            <option value="$PROJECT_DIR$/05. Dependencies/Building a program" />
+            <option value="$PROJECT_DIR$/05. Dependencies/Creating an executable JAR" />
+            <option value="$PROJECT_DIR$/05. Dependencies/Declaring a dependency" />
+            <option value="$PROJECT_DIR$/05. Dependencies/How to add dependencies" />
+            <option value="$PROJECT_DIR$/05. Dependencies/Theory" />
+            <option value="$PROJECT_DIR$/05. Dependencies/What are dependencies" />
+            <option value="$PROJECT_DIR$/05. Dependencies/Why do we need dependencies" />
+            <option value="$PROJECT_DIR$/util" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

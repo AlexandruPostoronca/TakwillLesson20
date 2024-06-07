@@ -1,0 +1,131 @@
+<html>
+ <head></head>
+ <body>
+  <h4>Why we need dependency management</h4>
+  <p>Small programs you write when you’re learning Java may not use any external libraries at all. When you need something, you find it in the Java Class Library or create it yourself. In real projects, you often need external frameworks and libraries to reuse existing solutions. It is better than writing everything yourself because external libraries can be written once, tested, and used by millions of people around the world.</p>
+  <p>These external libraries used in a project are called <strong>dependencies</strong>. As a rule, they are packaged in <strong>JAR</strong> (<strong>Java ARchive</strong>) files.</p>
+  <p>Keeping your project updated with the correct versions of dependencies can be quite difficult. An external library may need other libraries or another version of the same library you're using. Downloading and managing all these dependencies is a tedious task. The picture below demonstrates possible problems that may occur with dependencies when developing a project.</p>
+  <p><img alt="" src="20.05.01.png" width="642px" style="margin: auto;"></p>
+  <p><strong>Some possible problems with dependencies</strong></p>
+  <p>Dependencies become even more problematic if your project has tens or hundreds of external libraries. The automatic dependency management mechanism can greatly simplify your work.</p>
+  <h4>Adding dependencies to your project</h4>
+  <p>The dependency management feature in Maven automatically downloads external libraries and adds them to the project. It can also solve different conflict cases.</p>
+  <p>You should specify your project dependencies inside the <code>dependencies</code> section in the POM file. To declare a dependency on an external library, you need to provide the <code>groupId</code>, <code>artifactId</code>, and the <code>version</code> of this library. Maven will identify this library, download it and add it to the project.</p>
+  <p>We assume that you have a POM without dependencies. As an example, let's add a dependency to a lightweight mathematics and statistics library named <strong>Commons Math</strong>, and a dependency on the <strong>junit</strong> framework for testing.</p>
+  <pre><code>&lt;dependencies&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.apache.commons&lt;/groupId&gt;
+        &lt;artifactId&gt;commons-math3&lt;/artifactId&gt;
+        &lt;version&gt;3.2&lt;/version&gt;
+    &lt;/dependency&gt;    
+    &lt;dependency&gt;
+        &lt;groupId&gt;junit&lt;/groupId&gt;
+        &lt;artifactId&gt;junit&lt;/artifactId&gt;
+        &lt;version&gt;4.11&lt;/version&gt;
+        &lt;scope&gt;test&lt;/scope&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;</code></pre>
+  <p>When Maven builds this project, the two dependencies will be downloaded and placed in your local Maven repository. If the dependencies are already there, Maven will not download them again.</p>
+  <p>The second dependency (<strong>junit</strong>) has a scope element, which means that this dependency is available only in the testing phase and unavailable during the program execution. The first dependency does not have the scope element which means it is always available. In this topic, we will not be considering scope.</p>
+  <p></p>
+  <div class="alert alert-primary">
+   Note, that in production development, you will often add different Apache libraries to your projects (e.g., for networking, file processing and so on).
+  </div>
+  <p></p>
+  <h4>Using dependencies in a program</h4>
+  <p>After you have a dependency on a library, you can use it in your program. Let's read two complex numbers and then display their sum.</p>
+  <pre><code>
+import org.apache.commons.math3.complex.Complex; // an external library
+import java.util.Scanner;
+
+public class App {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        double c1Im = scanner.nextDouble();
+        double c1Re = scanner.nextDouble();
+        double c2Im = scanner.nextDouble();
+        double c2Re = scanner.nextDouble();
+
+        Complex c1 = new Complex(c1Im, c1Re);
+        Complex c2 = new Complex(c2Im, c2Re);
+        Complex result = c1.add(c2);
+
+        System.out.println(result);
+    }
+}</code></pre>
+  <p>Let's build this program:</p>
+  <pre><code>mvn clean package</code></pre>
+  <p>It should be compiled and packaged successfully because we have all the necessary dependencies in the POM. After completing this command, there will be a JAR file with your program in the target directory.</p>
+  <p>Let's start it (this is an example on Linux):</p>
+  <pre><code>java -cp target/complex-summator-1.0-SNAPSHOT.jar md.tekwill.App</code></pre>
+  <p>Then we enter real and imaginary parts for both input complex numbers:</p>
+  <pre><code>1.5 3.2 2.4 5.1</code></pre>
+  <p>Unfortunately, the program throws an exception:</p>
+  <pre><code>Exception in thread "main" java.lang.NoClassDefFoundError: org/apache/commons/math3/complex/Complex
+  at md.tekwill.App.main(App.java:15)
+Caused by: java.lang.ClassNotFoundException: org.apache.commons.math3.complex.Complex
+  at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:582)
+  at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:185)
+  at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:496)
+  ... 1 more</code></pre>
+  <p>The problem is that the JAR does not include the <strong>commons-math3</strong> library that Maven used when building this project. This might surprise people who use an IDE (e.g. IntelliJ IDEA), they are used to starting the program <em>"from the IDE" </em>by just clicking <strong>RUN</strong>. The thing is that the IDE actually adds these libraries when the program starts.</p>
+  <p>To do the same, you should add the library to the <strong>classpath</strong>. We can get external JARs from the local Maven repository or create a special directory with all the necessary libraries. Now, let's try to use the first approach.</p>
+  <ul>
+   <li><strong>Linux:</strong> use the <code>:</code> separator for multiple jars</li>
+  </ul>
+  <pre><code>java -cp ~/.m2/repository/org/apache/commons/commons-math3/3.2/commons-math3-3.2.jar:target/complex-summator-1.0-SNAPSHOT.jar md.tekwill.App </code></pre>
+  <p><strong>Windows:</strong> use the <code>;</code> separator for multiple jars</p>
+  <pre><code>...</code></pre>
+  <p>Now, if we input the same numbers as above the program outputs:</p>
+  <pre><code>(3.9, 8.3)</code></pre>
+  <p>This approach can be complicated when you have a large number of external dependencies. In the following lessons, we will see how to avoid this exception by using Maven plugins.</p>
+  <h4>Executable JAR</h4>
+  <p><strong>Executable JAR</strong> means that all needed external libraries are stored within a single JAR. You do not need to specify the classpath to start it. You can use build plugins to create an executable JAR. There are several plugins that allow you to do that in different ways.</p>
+  <p>We will use maven-assembly-plugin, which is one of the easiest. It is primarily intended to aggregate the project output along with its dependencies into a single <strong>"uber-jar"</strong>. Currently, the plugin can create distributions in the following formats: <code>.zip</code>, <code>.tar.gz</code>, <code>.jar</code>, and others.</p>
+  <p>To use the plugin, add the following section to your POM:</p>
+  <pre><code>&lt;build&gt;
+    &lt;plugins&gt;
+        &lt;plugin&gt;
+            &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+            &lt;artifactId&gt;maven-assembly-plugin&lt;/artifactId&gt;
+            &lt;version&gt;3.1.0&lt;/version&gt;
+            &lt;configuration&gt;
+                &lt;archive&gt;
+                    &lt;manifest&gt;
+                        &lt;mainClass&gt;md.tekwill.App&lt;/mainClass&gt;
+                    &lt;/manifest&gt;
+                &lt;/archive&gt;
+                &lt;descriptorRefs&gt;
+                    &lt;descriptorRef&gt;jar-with-dependencies&lt;/descriptorRef&gt;
+                &lt;/descriptorRefs&gt;
+            &lt;/configuration&gt;
+            &lt;executions&gt;
+                &lt;execution&gt;
+                    &lt;phase&gt;package&lt;/phase&gt;
+                    &lt;goals&gt;
+                        &lt;goal&gt;single&lt;/goal&gt;
+                    &lt;/goals&gt;
+                &lt;/execution&gt;
+            &lt;/executions&gt;
+        &lt;/plugin&gt;
+    &lt;/plugins&gt;
+&lt;/build&gt;</code></pre>
+  <p>We declared the build section with one plugin that is <code>maven-assembly-plugin</code> of the 3.1.0 version (check the newest version <a href="https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-assembly-plugin" rel="nofollow noopener noreferrer" target="_blank">here</a>). Maven downloads it from the central repository. The plugin starts the <code>single</code> goal on the <code>package</code> phase. The result is a single JAR with all the dependencies inside. It also configures the <code>manifest</code> file to set the path to the <code>main</code> method.</p>
+  <p>Let's build this program again:</p>
+  <pre><code>mvn clean package</code></pre>
+  <p>The <strong>output</strong> directory is a new JAR with a name like:</p>
+  <pre><code>complex-summator-1.0-SNAPSHOT-jar-with-dependencies.jar</code></pre>
+  <p>It contains all the classes from the commons-math3 library. To start it, we can just write:</p>
+  <pre><code>java -jar target/complex-summator-1.0-SNAPSHOT-jar-with-dependencies.jar</code></pre>
+  <p>As you see, we do not need to specify the <code>-cp</code> option. Check that the program actually works as expected.</p>
+  <h4>Conclusion</h4>
+  <p>So, we have learned that dependencies are external libraries usually written by other people, which you can use as solutions for your problems. Also, automatic management of dependencies like one in Maven is better than manual because it prevents possible troubles with their maintenance and keeps you away from tedious work.</p>
+  <p>For including a dependency into the project in Maven you should specify its <code>groupId</code>, <code>artifactId</code>, and the <code>version</code> in the <code>dependencies</code> section of the POM file.</p>
+  <p>Unless you are using IDE that adds dependencies when the program starts, you should add them manually in one of two ways to run a program with dependencies:</p>
+  <ul>
+   <li>add the library to the classpath either as external JARs from the local Maven repository or create a specific directory where will be stored all dependencies;</li>
+   <li>use one of the suitable build plugins and create an executable JAR inside which will be saved all dependencies.</li>
+  </ul>
+ </body>
+</html>

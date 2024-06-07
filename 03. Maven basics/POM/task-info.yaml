@@ -1,0 +1,27 @@
+type: choice
+is_multiple_choice: true
+options:
+  - text: It is an optional element of a Maven-based project.
+    is_correct: false
+  - text: It means Project Object Model
+    is_correct: true
+  - text: "It stores project configurations for Maven (e.g. project name, version, build\
+    \ configurations)"
+    is_correct: true
+  - text: It does not store information about dependencies.
+    is_correct: false
+quiz_header: 'Select all the correct answers:'
+files:
+  - name: src/Main.java
+    visible: true
+    learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Mon, 03 Jun 2024 13:00:19 UTC"
+record: -1
+selected_options:
+  - 1
+  - 2
+custom_name: POM
+local_check: true

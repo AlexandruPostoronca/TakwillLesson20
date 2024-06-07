@@ -1,0 +1,24 @@
+type: choice
+is_multiple_choice: false
+options:
+  - text: reuse existing solutions
+    is_correct: true
+  - text: run user code
+    is_correct: false
+  - text: debug the code
+    is_correct: false
+  - text: check the correctness of the code
+    is_correct: false
+files:
+  - name: src/Main.java
+    visible: true
+    learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Wed, 05 Jun 2024 19:24:40 UTC"
+record: -1
+selected_options:
+  - 0
+custom_name: Why do we need dependencies?
+local_check: true

@@ -1,0 +1,24 @@
+type: choice
+is_multiple_choice: false
+options:
+  - text: mvn get package
+    is_correct: false
+  - text: mvn remove package
+    is_correct: false
+  - text: mvn build package
+    is_correct: false
+  - text: mvn clean package
+    is_correct: true
+files:
+  - name: src/Main.java
+    visible: true
+    learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Wed, 05 Jun 2024 19:21:48 UTC"
+record: -1
+selected_options:
+  - 3
+custom_name: Building a program
+local_check: true

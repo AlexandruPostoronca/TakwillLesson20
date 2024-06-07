@@ -1,0 +1,29 @@
+type: choice
+is_multiple_choice: true
+options:
+  - text: Aggregating files of an application in JAR makes easier to move the application
+      over a network.
+    is_correct: true
+  - text: "JRE cannot start a .jar file, so you must extract all files from this archive\
+    \ and then start the files."
+    is_correct: false
+  - text: A file containing JAR metadata is called MANIFEST.MF.
+    is_correct: true
+  - text: It may include images and sound files.
+    is_correct: true
+quiz_header: 'Select all the correct answers:'
+files:
+  - name: src/Main.java
+    visible: true
+    learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Mon, 03 Jun 2024 11:58:17 UTC"
+record: -1
+selected_options:
+  - 0
+  - 2
+  - 3
+custom_name: Statements about JAR
+local_check: true

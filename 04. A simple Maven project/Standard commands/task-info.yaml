@@ -1,0 +1,24 @@
+type: choice
+is_multiple_choice: false
+options:
+  - text: mvn install
+    is_correct: false
+  - text: mvn test compile
+    is_correct: false
+  - text: mvn package clean
+    is_correct: false
+  - text: mvn clean install
+    is_correct: true
+files:
+  - name: src/Main.java
+    visible: true
+    learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Wed, 05 Jun 2024 19:20:29 UTC"
+record: -1
+selected_options:
+  - 3
+custom_name: Standard commands
+local_check: true

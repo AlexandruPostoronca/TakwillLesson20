@@ -1,0 +1,24 @@
+type: choice
+is_multiple_choice: false
+options:
+  - text: mvn -check
+    is_correct: false
+  - text: mvn -version
+    is_correct: true
+  - text: mvn checkversion
+    is_correct: false
+  - text: maven v
+    is_correct: false
+files:
+  - name: src/Main.java
+    visible: true
+    learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Mon, 03 Jun 2024 12:00:12 UTC"
+record: -1
+selected_options:
+  - 1
+custom_name: Command
+local_check: true

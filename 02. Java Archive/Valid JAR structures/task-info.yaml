@@ -1,0 +1,28 @@
+type: choice
+is_multiple_choice: true
+options:
+  - text: a
+    is_correct: true
+  - text: b
+    is_correct: false
+  - text: c
+    is_correct: true
+  - text: d
+    is_correct: false
+  - text: e
+    is_correct: false
+quiz_header: 'Select all the correct answers:'
+files:
+  - name: src/Main.java
+    visible: true
+    learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Mon, 03 Jun 2024 11:58:43 UTC"
+record: -1
+selected_options:
+  - 0
+  - 2
+custom_name: Valid JAR structures
+local_check: true

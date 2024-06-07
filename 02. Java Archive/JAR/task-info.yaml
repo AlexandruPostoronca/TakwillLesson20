@@ -1,0 +1,28 @@
+type: choice
+is_multiple_choice: true
+options:
+  - text: Aggregating files of an application in JAR makes the application faster.
+    is_correct: false
+  - text: It is a compressed archive based on ZIP.
+    is_correct: true
+  - text: It can include only bytecode files and a file with metadata.
+    is_correct: false
+  - text: A file containing JAR metadata is called JAR.INFO.
+    is_correct: false
+  - text: JRE can start an application packed to a JAR.
+    is_correct: true
+quiz_header: 'Select all the correct answers:'
+files:
+  - name: src/Main.java
+    visible: true
+    learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Mon, 03 Jun 2024 11:57:09 UTC"
+record: -1
+selected_options:
+  - 1
+  - 4
+custom_name: JAR
+local_check: true

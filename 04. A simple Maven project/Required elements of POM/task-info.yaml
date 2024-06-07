@@ -1,0 +1,28 @@
+type: choice
+is_multiple_choice: true
+options:
+  - text: project
+    is_correct: true
+  - text: name
+    is_correct: false
+  - text: dependencies
+    is_correct: false
+  - text: version
+    is_correct: true
+  - text: packaging
+    is_correct: false
+  - text: artifactId
+    is_correct: true
+  - text: modelVersion
+    is_correct: true
+  - text: groupId
+    is_correct: true
+quiz_header: 'Select all the correct answers:'
+files:
+  - name: src/Main.java
+    visible: true
+    learner_created: false
+status: Unchecked
+record: -1
+custom_name: Required elements of POM
+local_check: true

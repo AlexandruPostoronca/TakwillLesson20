@@ -1,0 +1,28 @@
+type: choice
+is_multiple_choice: true
+options:
+  - text: adding those library to classpath when starting the JAR
+    is_correct: false
+  - text: dependencies on those libraries
+    is_correct: true
+  - text: usage of these libraries in source code
+    is_correct: false
+  - text: profiles
+    is_correct: false
+  - text: a build plugin
+    is_correct: true
+quiz_header: 'Select all the correct answers:'
+files:
+  - name: src/Main.java
+    visible: true
+    learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Wed, 05 Jun 2024 19:22:45 UTC"
+record: -1
+selected_options:
+  - 1
+  - 4
+custom_name: Creating an executable JAR
+local_check: true

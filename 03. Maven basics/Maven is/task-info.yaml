@@ -1,0 +1,24 @@
+type: choice
+is_multiple_choice: false
+options:
+  - text: It is a tool for building and managing Java-based projects.
+    is_correct: true
+  - text: It is a programming language.
+    is_correct: false
+  - text: It is a code editor.
+    is_correct: false
+  - text: It is an IDE.
+    is_correct: false
+files:
+  - name: src/Main.java
+    visible: true
+    learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Mon, 03 Jun 2024 12:59:51 UTC"
+record: -1
+selected_options:
+  - 0
+custom_name: Maven is...
+local_check: true

@@ -1,0 +1,22 @@
+type: marketplace
+title: 20. Build tools
+language: English
+summary: |-
+  This is an introductory about using Building tools and adding Dependencies to Java application.
+  - 01. Build tools
+  - 02. Java Archive
+  - 03. Maven basics
+  - 04. A simple Maven project
+  - 05. Dependencies
+programming_language: Java
+content:
+  - 01. Build tools
+  - 02. Java Archive
+  - 03. Maven basics
+  - 04. A simple Maven project
+  - 05. Dependencies
+mode: Study
+environment_settings:
+  jvm_language_level: JDK_17
+vendor:
+  name: Alexandru Umanet

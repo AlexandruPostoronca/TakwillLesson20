@@ -1,0 +1,27 @@
+type: choice
+is_multiple_choice: true
+options:
+  - text: It creates an artifact (.jar or something else).
+    is_correct: true
+  - text: It removes the target directory if it is exist (after the building process)
+    is_correct: false
+  - text: It starts automatic tests during building.
+    is_correct: true
+  - text: It removes the target directory if it is exist (before the building process)
+    is_correct: true
+quiz_header: 'Select all the correct answers:'
+files:
+  - name: src/Main.java
+    visible: true
+    learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Mon, 03 Jun 2024 13:00:56 UTC"
+record: -1
+selected_options:
+  - 0
+  - 2
+  - 3
+custom_name: Describe a command
+local_check: true

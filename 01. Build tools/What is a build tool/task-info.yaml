@@ -1,0 +1,24 @@
+type: choice
+is_multiple_choice: false
+options:
+  - text: automates the source code debugging
+    is_correct: false
+  - text: builds a program modules library for a user project
+    is_correct: false
+  - text: automates creating executable applications from the source code
+    is_correct: true
+  - text: creates an algorithm from a pseudo code
+    is_correct: false
+files:
+  - name: src/Main.java
+    visible: true
+    learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Fri, 31 May 2024 21:35:34 UTC"
+record: -1
+selected_options:
+  - 2
+custom_name: What is a build tool?
+local_check: true

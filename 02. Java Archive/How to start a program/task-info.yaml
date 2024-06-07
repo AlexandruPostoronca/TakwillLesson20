@@ -1,0 +1,24 @@
+type: choice
+is_multiple_choice: false
+options:
+  - text: java -cp app.jar path.to.Main
+    is_correct: true
+  - text: java -jar app.jar
+    is_correct: false
+  - text: java -cp app.jar
+    is_correct: false
+  - text: java app.jar
+    is_correct: false
+files:
+  - name: src/Main.java
+    visible: true
+    learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Mon, 03 Jun 2024 11:55:37 UTC"
+record: -1
+selected_options:
+  - 0
+custom_name: How to start a program
+local_check: true

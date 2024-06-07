@@ -1,0 +1,27 @@
+type: choice
+is_multiple_choice: true
+options:
+  - text: All dependencies are stored in POM.
+    is_correct: true
+  - text: Maven automatically downloads specified external libraries.
+    is_correct: true
+  - text: Maven is able to solve conflict cases with dependencies.
+    is_correct: true
+  - text: Maven supports only a limit number of external dependencies for a project.
+    is_correct: false
+quiz_header: 'Select all the correct answers:'
+files:
+  - name: src/Main.java
+    visible: true
+    learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Mon, 03 Jun 2024 12:59:05 UTC"
+record: -1
+selected_options:
+  - 0
+  - 1
+  - 2
+custom_name: Dependency management
+local_check: true

@@ -1,0 +1,33 @@
+<html>
+ <head></head>
+ <body>
+  <p><strong>Maven</strong> is one of the most commonly-used tools for building and managing Java-based projects. The word <em>maven</em> means <em>"accumulator of knowledge"</em> in Yiddish. Maven provides a unified project structure, describes how a project is built, and describes its dependencies. During the build, this tool can start automatic tests and report about the build. It also aims to assist in project workflow, for example, in release and issue management. It is a very powerful build tool.</p>
+  <p>An important thing about Maven is that it is used in a declarative way, meaning that you describe <strong>WHAT</strong> should be done instead of <strong>HOW</strong> to do something. This greatly simplifies project management.</p>
+  <p><img alt="" src="20.03.01.png" width="200" style="margin: auto;"></p>
+  <p>Maven makes the day-to-day work of Java developers easier and generally helps with the comprehension of any Java-based project written in Java, Kotlin, Scala, or other languages. The full list of Maven features can be found <a target="_blank" href="https://maven.apache.org/maven-features.html" rel="nofollow noopener noreferrer">here</a>. If you want more background information on Maven you can read <a target="_blank" href="https://maven.apache.org/background/philosophy-of-maven.html" rel="nofollow noopener noreferrer" title="Link: https://maven.apache.org/background/philosophy-of-maven.html"> The Philosophy of Maven </a> and <a target="_blank" href="https://maven.apache.org/background/history-of-maven.html" rel="nofollow noopener noreferrer"> The History of Maven </a>.</p>
+  <h4>The key concepts</h4>
+  <p>The key features of Maven are as follows:</p>
+  <ul>
+   <li><strong>Project Object Model (POM)</strong>. Every project using Maven has an XML file called <strong>pom.xml</strong>. The file contains all the information about the project including its name, version, properties, dependencies, and configuration details Maven uses to build the project.</li>
+   <li><strong>Convention over configuration. </strong>This means that a programmer does not need to configure all possible options; instead, Maven takes unspecified options with default values. A programmer configures only unconventional options in POM.</li>
+   <li><strong>Dependency management.</strong> Maven automatically downloads specified external libraries and solves conflict cases with dependencies. All dependencies are stored in POM. It is possible to declare as many dependencies as you need for a project.</li>
+   <li><strong>Repositories. </strong>Project dependencies can be loaded in the same way from public storages called repositories or the local file system.</li>
+   <li><strong>Build lifecycle. </strong>The process for building and distributing a project is clearly defined and has a sequence of phases such as validation, compilation, testing, packaging, installing, and others. All phases are described in the POM.<strong> </strong></li>
+   <li><strong>Plugins.</strong> Maven can be extended by plugins to utilize a number of tools for reporting or the build process. All information about the plugin configurations is stored in the POM.</li>
+  </ul>
+  <h4>Downloading and installing Maven</h4>
+  <p>Maven is distributed in several formats. You can download the binary distribution archive (zip or tar.gz) from <a target="_blank" href="https://maven.apache.org/download.cgi" rel="nofollow noopener noreferrer"> the official website</a> and unpack this archive somewhere. Alternatively, you may download the source archive if you intend to build Maven yourself.</p>
+  <p>To install Maven, follow the <a target="_blank" href="https://maven.apache.org/install.html" rel="nofollow noopener noreferrer" title="Link: https://maven.apache.org/install.html"> installation instructions</a> for your operating system.</p>
+  <p>To verify that the installation has been completed correctly, run the following command:</p>
+  <pre><code>mvn -version</code></pre>
+  <p>The result should look similar to</p>
+  <pre><code>Apache Maven 3.5.4 (1edded0938998edf8bf061f1ceb3cfdeccf443fe; 2018-06-17T23:33:14+05:00)
+Maven home: /opt/apache-maven-3.5.4
+Java version: 9.0.1, vendor: Oracle Corporation, runtime: /usr/lib/jvm/java-9-oracle
+Default locale: en_US, platform encoding: UTF-8
+...</code></pre>
+  <p>The versions of Maven and Java may differ; the main thing is that the command works without errors.</p>
+  <h4>Conclusion</h4>
+  <p>To recap, Maven is more than a simple build tool. It provides an infrastructure to build and manage Java projects in a declarative way using the Project Object Model. If you’ve gotten a rough idea of Maven and installed it, then you completed this lesson. In the next topic, we will show you how to create the simplest Maven project.</p>
+ </body>
+</html>
